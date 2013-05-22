@@ -1,0 +1,23 @@
+
+
+<div id="row">
+	<%= form_tag graph_site_politicos_path, :method => :get do %>
+		<%= text_field_tag :search, params[:search], :id => 'search_field', 'data-provide' => "typeahead" ,
+		'data-source' => @auto_complete.to_json, 'autocomplete'=>"off", :class => "search-query", :placeholder => "Escolhe um dia"%>
+		<%= submit_tag "Search", :class => "btn", :name => nil %> 
+	<% end %> 
+</div>
+
+<%if @results%>
+<h3>Encontramos <%= @results.size %> noticias sobre <%= params[:search]%> :</h3>
+<h5>(noticias ordenadas pelo BM25)</h5>
+	<ul>
+		<% @results.each do |result|%>
+			<li><a href="<%= result %>"><%= result %></a></li>	
+		<%end%>
+	</ul>
+<%else%>
+	<%if params[:search] != nil %>
+		<h3>Sem resultados</h3>
+	<%end%>
+<%end%>

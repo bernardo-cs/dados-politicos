@@ -1,0 +1,21 @@
+<div id="row">
+    <%= form_tag graph_dois_politicos_path, :method => :get do %>
+        <%= text_field_tag :search1, params[:search1], :id => 'search_field', 'data-provide' => "typeahead" ,
+        'data-source' => @auto_complete.to_json, 'autocomplete'=>"off", :class => "search-query", :placeholder => "Politico2"%>
+         <%= text_field_tag :search2, params[:search2], :id => 'search_field', 'data-provide' => "typeahead" ,
+        'data-source' => @auto_complete.to_json, 'autocomplete'=>"off", :class => "search-query", :placeholder => "Politico1"%>
+        <%= submit_tag "Search", :class => "btn", :name => nil %> 
+    <% end %> 
+</div>
+
+<%if params[:search1] && params[:search2]%>
+	<%if @results >0 %>
+	<h3>Os politicos <%= params[:search1] %> e <%= params[:search2] %> sao amigos</h3>
+	<%elsif @results < 0%>
+
+		<h3>Os politicos <%= params[:search1] %> e <%= params[:search2] %> não sao amigos</h3>
+	<%else %>
+		<h3>Nao temos dados suficientes para os politicos <%= params[:search1] %> e <%= params[:search2] %></h3>
+
+	<%end%>
+<%end%>

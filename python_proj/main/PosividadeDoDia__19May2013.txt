@@ -1,0 +1,3 @@
+positivas:12
+neutras:34
+negativas:0

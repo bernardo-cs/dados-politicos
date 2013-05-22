@@ -1,0 +1,46 @@
+<script type="text/javascript" charset="utf-8">
+
+// Positividade dos Politicos
+$(document).ready(function(){
+	var chart = new Highcharts.Chart({
+		chart: {
+			renderTo: 'politicos_chart'
+		},
+		title: {
+			text: 'Positividade dos Politicos no dia <%= @dia %>'
+		},
+		xAxis: {
+			categories: <%= raw @pos.to_json %>
+		},
+		tooltip: {
+			formatter: function() {
+				var s;
+                    if (this.point.name) { // the pie chart
+                    	s = ''+
+                    	this.point.name +': '+ this.y +' fruits';
+                    } else {
+                    	s = ''+
+                    	this.x  +': '+ this.y;
+                    }
+                    return s;
+                  }
+                },
+
+                series: [{
+                	type: 'column',
+                	name: 'Numero de referencias',
+                	data: <%= raw @pos_val.to_json %>
+                }]
+              });
+});
+</script>
+<div id="row">
+    <%= form_tag graph_mais_referenciado_path, :method => :get do %>
+        <%= text_field_tag :search, params[:search], :id => 'search_field', 'data-provide' => "typeahead" ,
+        'data-source' => @auto_complete.to_json, 'autocomplete'=>"off", :class => "search-query", :placeholder => "Escreva o nome de um politico"%>
+        <%= submit_tag "Search", :class => "btn", :name => nil %> 
+    <% end %> 
+</div>
+<div id="row">
+    <div id="politicos_chart" ></div>
+</div>

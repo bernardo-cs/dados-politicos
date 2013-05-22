@@ -1,0 +1,28 @@
+1:Paulo Portas
+2:Marcelo Rebelo de Sousa,Paulo Portas
+3:Vital Moreira
+5:Marcelo Rebelo de Sousa
+9:Pedro Passos Coelho,Paulo Baldaia,Paulo Portas
+10:Francisco Assis
+11:Francisco Assis
+14:Paulo Portas
+17:Carlos Moedas,Paulo Portas
+18:Jorge Seguro Sanches,Jorge Seguro,Rui Solheiro,Eurico Brilhante Dias,Miguel Laranjeiro,Alberto Martins
+21:Catarina Martins
+23:Michael Seufert,Nuno Crato
+27:Catarina Martins
+28:Carlos Santos
+29:Rui Rio
+30:Jorge Monteiro
+32:Jorge Seguro Sanches,Jorge Seguro,Rui Solheiro,Francisco Assis,Eurico Brilhante Dias,Miguel Laranjeiro,Alberto Martins,Joaquim Raposo
+35:Rui Oliveira,Paulo Portas
+38:Armando Vieira
+39:Catarina Martins
+42:Paulo Portas
+45:Pedro Pinto,Francisco Almeida,Pedro Passos Coelho,Teresa Leal Coelho
+46:Pedro Silva Pereira,Renato Sampaio,Fernando Serrasqueiro,Laurentino Dias,Carlos Zorrinho,Miguel Laranjeiro
+47:Pedro Pinto,Pedro Silva Pereira,Renato Sampaio,Fernando Serrasqueiro,Duarte Marques,Laurentino Dias,Miguel Laranjeiro,Teresa Leal Coelho
+49:Pedro Pinto,Pedro Silva Pereira,Michael Seufert,Duarte Marques,Miguel Laranjeiro,Teresa Caeiro,Teresa Leal Coelho
+1226:Jorge Miranda
+1126:Manuel Pizarro
+1201:Jorge Miranda

@@ -1,0 +1,59 @@
+<script type="text/javascript" charset="utf-8">
+// Positividade dos Politicos
+$(document).ready(function(){
+	var chart = new Highcharts.Chart({
+		chart: {
+			renderTo: 'dias_chart',
+			plotBackgroundColor: null,
+			plotBorderWidth: null,
+			plotShadow: false
+		},
+		title: {
+			text: 'Positividade do Dia <%= @dia %>'
+		},
+		tooltip: {
+			pointFormat: '{series.name}: <b>{point.percentage}%</b>',
+			percentageDecimals: 1
+		},
+		plotOptions: {
+			pie: {
+				allowPointSelect: true,
+				cursor: 'pointer',
+				dataLabels: {
+					enabled: true,
+					color: '#000000',
+					connectorColor: '#000000',
+					formatter: function() {
+						return '<b>'+ this.point.name +'</b>: '+ this.percentage +' %';
+					}
+				}
+			}
+		},
+		series: [{
+			type: 'pie',
+			name: 'Percentagem',
+			data: [
+			['Noticias Negativas',   <%= @not_neg %>],
+			{
+				name: 'Noticias Positivas',
+				y: <%= @not_pos %>,
+				sliced: true,
+				selected: true
+			},
+			['Noticias Neutras',    <%= @not_neu %>]
+			]
+		}]
+	});
+});
+</script>
+<div id="row">
+	<%= form_tag graph_positividade_dia_path, :method => :get do %>
+		<%= text_field_tag :search, params[:search], :id => 'search_field', 'data-provide' => "typeahead" ,
+		'data-source' => @auto_complete.to_json, 'autocomplete'=>"off", :class => "search-query", :placeholder => "Escolhe um dia"%>
+		<%= submit_tag "Search", :class => "btn", :name => nil %> 
+	<% end %> 
+</div>
+<div id="row">
+	<div id="dias_chart" ></div>
+</div>
+

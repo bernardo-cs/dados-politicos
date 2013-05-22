@@ -1,0 +1,59 @@
+<script type="text/javascript" charset="utf-8">
+
+// Positividade dos Politicos
+$(document).ready(function(){
+	var chart = new Highcharts.Chart({
+		chart: {
+								renderTo: 'politicos_chart',
+                type: 'line',
+                marginRight: 130,
+                marginBottom: 25
+            },
+            title: {
+                text: 'Somatorio de referencias para: <%= params[:search]%>',
+                x: -20 //center
+            },
+            xAxis: {
+                categories: <%= raw @result_days.to_json%>
+            },
+            yAxis: {
+                title: {
+                    text: 'Somatorio Referencias'
+                },
+                plotLines: [{
+                    value: 0,
+                    width: 1,
+                    color: '#808080'
+                }]
+            },
+            tooltip: {
+                valueSuffix: '°C'
+            },
+            legend: {
+                layout: 'vertical',
+                align: 'right',
+                verticalAlign: 'top',
+                x: -10,
+                y: 100,
+                borderWidth: 0
+            },
+            series: [{
+                name: "<%= params[:search]%>",
+                data: <%= raw @result_references.to_json %>
+            }]
+	});
+});			
+</script>
+<div id="row">
+    <%= form_tag graph_politico_referenciado_acumulado_path, :method => :get do %>
+        <%= text_field_tag :search, params[:search], :id => 'search_field', 'data-provide' => "typeahead" ,
+        'data-source' => @auto_complete.to_json, 'autocomplete'=>"off", :class => "search-query", :placeholder => "Escreva o nome de um politico"%>
+        <%= submit_tag "Search", :class => "btn", :name => nil %> 
+    <% end %> 
+</div>
+
+<%if params[:search] && @result_references.size > 1%>
+	<div id="row">
+	    <div id="politicos_chart" ></div>
+	</div>
+<%end %>

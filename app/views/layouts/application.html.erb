@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>EadwNovo</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<div class="navbar">
+	<div class="navbar-inner">
+		<div class="container">
+			<a class="brand" href="/">
+				Projeto de EADW: Hype de Politicos
+			</a>
+			<ul class="nav">
+				<div class="btn-group">
+					<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+						Politicos
+						<span class="caret"></span>
+					</a>
+					<ul class="dropdown-menu">
+						<li> <a href="<%= graph_mais_positivo_path%>">Mais Positivo</a></li>
+						<li ><a href="<%= graph_mais_referenciado_path%>">Mais Referenciado</a></li>
+						<li ><a href="<%= graph_politico_referenciado_path%>"> Referenciado ao longo do tempo</a></li>
+						<li ><a href="<%= graph_politico_referenciado_acumulado_path%>"> Referenciado ao longo do tempo acumulado</a></li>
+						<li ><a href="<%= graph_site_politicos_path%>">Pesquisar Noticias de Politicos</a></li>
+						<li ><a href="<%= graph_dois_politicos_path%>">Amizade de Politicos</a></li>
+					</ul>
+				</div>
+				<div class="btn-group">
+					<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+						Dias
+						<span class="caret"></span>
+					</a>
+					<ul class="dropdown-menu">
+						<li> <a href="<%= graph_positividade_dia_path%>">Positividade do Dia</a></li>
+						<li> <a href="<%= graph_all_days_path%>">Todos os Dias</a></li>
+					</ul>
+				</div>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<%= yield %>
+
+</body>
+</html>
